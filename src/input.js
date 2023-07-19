@@ -1,5 +1,3 @@
-import Icon from './icon.png';
-
 export const create = () => {
   if (localStorage.getItem('todo') == null) {
     localStorage.setItem('todo', JSON.stringify([]));
@@ -8,13 +6,11 @@ export const create = () => {
 };
  
 const input = document.querySelector('.main');
-
 export const mydata = () => {
 
  input.addEventListener('keypress', (e) => {
-    
-    if (e.key === 'Enter') {
-        const totaltasks = create();
+   if (e.key === 'Enter') {
+      const totaltasks = create();
         const task = {
             check: true,
             des: document.querySelector('.main').value,

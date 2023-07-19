@@ -5,9 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wbpack Exercise</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 <script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script><script defer src="print.bundle.js"></script></head>
 <body>
-    <h2>everything is temporary</h2>
-    <script src="./index.js" type="module"></script>
+    <!-- <i class="fa-solid fa-turn-down turnLeft"></i>
+        <i class="fa-solid fa-ellipsis-vertical"></i> -->
+    <form>
+        <header><h1>Today's To Do </h1><i class="fa-solid fa-rotate rotate"></i></header>
+     <div class="main-input"><input class="main" type="text" placeholder="Add to your list..."> 
+        <i class="fa-solid fa-arrow-left"></i>
+
+    </div>
+     <section>
+      <div class="show"></div>
+     </section>
+      <button class="mysubmit">Clear all completed</button>
+    </form>
+    <!-- <img src="./icon.png" alt=""> -->
+    <script src="index.js" type="module"></script>
 </body>
 </html>

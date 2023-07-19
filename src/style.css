@@ -13,14 +13,11 @@ form {
 
 header {
   border-bottom: 1px solid gray;
-  padding: 2%;
+  padding: 2% 2%;
+  padding-right: 4%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-}
-
-h1 {
-  margin-right: 50%;
+  justify-content: space-between;
 }
 
 .mysubmit {
@@ -30,12 +27,17 @@ h1 {
 
 .main-input {
   padding: 2% 0;
+  padding-right: 2%;
 }
 
 .main {
   width: 85%;
   padding-left: 3%;
   font-style: italic;
+}
+
+h1 {
+  font-size: 20px;
 }
 
 .container {

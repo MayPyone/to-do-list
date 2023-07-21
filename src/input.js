@@ -13,7 +13,7 @@ export const mydata = () => {
       const task = {
         description: document.querySelector('.main').value,
         completed: false,
-        index: totaltasks.length,
+        index: totaltasks.length + 1,
       };
       totaltasks.push(task);
       localStorage.setItem('lists', JSON.stringify(totaltasks));

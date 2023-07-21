@@ -1,6 +1,8 @@
 import './style.css';
+import {
+  mydata, display, deleteData,
+} from './input.js';
 
-import { mydata, display } from './input.js';
-
-// mydata();
 display();
+mydata();
+deleteData();

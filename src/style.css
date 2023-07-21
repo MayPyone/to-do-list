@@ -40,9 +40,8 @@ h1 {
 }
 
 .container {
-  width: 96%;
+  width: 98%;
   background-color: white;
-  padding: 2%;
   border-top: 1px solid gray;
   align-items: center;
   display: flex;

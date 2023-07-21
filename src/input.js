@@ -8,8 +8,9 @@ export const create = () => {
 const input = document.querySelector('.main');
 export const mydata = () => {
   input.addEventListener('keypress', (e) => {
+    const totaltasks = create();
     if (e.key === 'Enter') {
-      const totaltasks = create();
+      const l = totaltasks.length + 1;
       const task = {
         description: document.querySelector('.main').value,
         completed: false,
@@ -41,8 +42,8 @@ export const display = () => {
 export const remove = (e) => {
   const totaltasks = create();
   totaltasks.splice(e, 1);
-  for (let i = 0; i < totaltasks.length; i += 1) {
-    totaltasks[i].index = i;
+  for (let i = 1; i < totaltasks.length; i += 1) {
+    totaltasks[i - 1].index = i;
   }
   localStorage.setItem('lists', JSON.stringify(totaltasks));
   document.querySelector('.show').innerHTML = '';

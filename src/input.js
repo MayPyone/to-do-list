@@ -10,11 +10,14 @@ export const mydata = () => {
   input.addEventListener('keypress', (e) => {
     const totaltasks = create();
     if (e.key === 'Enter') {
-      const l = totaltasks.length + 1;
+      const l = totaltasks.length;
+      if (totaltasks.length < 1) {
+        // l =1
+      }
       const task = {
         description: document.querySelector('.main').value,
         completed: false,
-        index: totaltasks.length + 1,
+        index: l + 1,
       };
       totaltasks.push(task);
       localStorage.setItem('lists', JSON.stringify(totaltasks));
@@ -42,8 +45,10 @@ export const display = () => {
 export const remove = (e) => {
   const totaltasks = create();
   totaltasks.splice(e, 1);
-  for (let i = 1; i < totaltasks.length; i += 1) {
-    totaltasks[i - 1].index = i;
+  if (totaltasks.length > 0) {
+    for (let i = 0; i < totaltasks.length; i += 1) {
+      totaltasks[i].index = i + 1;
+    }
   }
   localStorage.setItem('lists', JSON.stringify(totaltasks));
   document.querySelector('.show').innerHTML = '';

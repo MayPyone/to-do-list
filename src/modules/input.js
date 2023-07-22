@@ -27,15 +27,15 @@ export const display = () => {
   const totaltasks = create();
   for (let i = 0; i < totaltasks.length; i += 1) {
     inner.innerHTML += `
-         <div class="container" id='con${i}'> 
-         <div>
-         <input id="${i}" class='checkbox${i}' type="checkbox" ${totaltasks[i].completed ? 'checked' : ' '}/>
-        <span id ='iddes' class="des${i}"> 
-        <input id='in${i}' class='me${i}' readonly type="text" value="${totaltasks[i].description}"></input>
-        </span></div>
-       <span id="icon${i}" > <i class="fa-solid fa-ellipsis-vertical" id="${i}"></i></span>
-         </div>
-          `;
+       <div class="container" id='con${i}'> 
+       <div>
+       <input id="${i}" class='checkbox${i}' type="checkbox" ${totaltasks[i].completed ? 'checked' : ' '}/>
+      <span id ='iddes' class="des${i}"> 
+      <input id='in${i}' class='me${i}' readonly type="text" value="${totaltasks[i].description}"></input>
+      </span></div>
+     <span id="icon${i}" > <i class="fa-solid fa-ellipsis-vertical" id="${i}"></i></span>
+       </div>
+        `;
     if (totaltasks[i].completed) {
       document.querySelector(`.me${i}`).style.textDecoration = 'line-through';
     }
@@ -54,37 +54,17 @@ export const remove = (e) => {
   document.querySelector('.show').innerHTML = '';
 };
 
-export const check = () => {
-  const totaltasks = create();
-  document.querySelector('.show').addEventListener('change', (e) => {
-    const button = e.target;
-    const num = Number(button.id);
-    const che = document.querySelector(`.checkbox${num}`);
-    if (e.target.tagName === 'INPUT') {
-      if (che.checked === true) {
-        document.querySelector(`.me${num}`).style.textDecoration = 'line-through';
-        totaltasks[num].completed = true;
-        localStorage.setItem('lists', JSON.stringify(totaltasks));
-      }
-      if (che.checked === false) {
-        document.querySelector(`.me${num}`).style.textDecoration = 'none';
-        totaltasks[num].completed = false;
-
-        localStorage.setItem('lists', JSON.stringify(totaltasks));
-      }
-    }
-  });
-};
-
 export const clear = () => {
   const submit = document.querySelector('.mysubmit');
-  submit.addEventListener('click', () => {
-    const totaltasks = create();
-    const obj = totaltasks.filter((task) => task.completed === false);
-    for (let i = 0; i < obj.length; i += 1) {
-      obj[i].index = i + 1;
+  submit.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') {
+      const totaltasks = create();
+      const obj = totaltasks.filter((task) => task.completed === false);
+      for (let i = 0; i < obj.length; i += 1) {
+        obj[i].index = i + 1;
+      }
+      localStorage.setItem('lists', JSON.stringify(obj));
     }
-    localStorage.setItem('lists', JSON.stringify(obj));
   });
 };
 

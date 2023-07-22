@@ -21,11 +21,11 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Awesome-books <a name="about-project"></a>
+# 📖 To do list <a name="about-project"></a>
 
 
 
-**Environmental Development** is a wonderful  project to manage your activities in a day.
+**To do list** is a wonderful  project to manage your activities in a day.
 
 ## 🛠 Built With <a name="built-with"></a>
 

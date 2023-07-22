@@ -11,9 +11,6 @@ export const mydata = () => {
     const totaltasks = create();
     if (e.key === 'Enter') {
       const l = totaltasks.length;
-      if (totaltasks.length < 1) {
-        // l =1
-      }
       const task = {
         description: document.querySelector('.main').value,
         completed: false,
@@ -24,21 +21,24 @@ export const mydata = () => {
     }
   });
 };
-
+const inner = document.querySelector('.show');
 export const display = () => {
-  const inner = document.querySelector('.show');
+  inner.innerHTML = '';
   const totaltasks = create();
   for (let i = 0; i < totaltasks.length; i += 1) {
     inner.innerHTML += `
-       <div class="container" id='con${i}'> 
-       <div>
-       <input class='checkbox' type="checkbox" ${totaltasks.completed ? 'checked' : ' '}/>
-      <span id ='iddes' class="des${i}"> 
-      <input id='in${i}' readonly type="text" value="${totaltasks[i].description}"></input>
-      </span></div>
-     <span id="icon${i}" > <i class="fa-solid fa-ellipsis-vertical" id="${i}"></i></span>
-       </div>
-        `;
+         <div class="container" id='con${i}'> 
+         <div>
+         <input id="${i}" class='checkbox${i}' type="checkbox" ${totaltasks[i].completed ? 'checked' : ' '}/>
+        <span id ='iddes' class="des${i}"> 
+        <input id='in${i}' class='me${i}' readonly type="text" value="${totaltasks[i].description}"></input>
+        </span></div>
+       <span id="icon${i}" > <i class="fa-solid fa-ellipsis-vertical" id="${i}"></i></span>
+         </div>
+          `;
+    if (totaltasks[i].completed) {
+      document.querySelector(`.me${i}`).style.textDecoration = 'line-through';
+    }
   }
 };
 
@@ -52,6 +52,20 @@ export const remove = (e) => {
   }
   localStorage.setItem('lists', JSON.stringify(totaltasks));
   document.querySelector('.show').innerHTML = '';
+};
+
+export const clear = () => {
+  const submit = document.querySelector('.mysubmit');
+  submit.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') {
+      const totaltasks = create();
+      const obj = totaltasks.filter((task) => task.completed === false);
+      for (let i = 0; i < obj.length; i += 1) {
+        obj[i].index = i + 1;
+      }
+      localStorage.setItem('lists', JSON.stringify(obj));
+    }
+  });
 };
 
 export const deleteData = () => {
